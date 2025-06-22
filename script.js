@@ -197,3 +197,104 @@ function createGridAnimation() {
 
 createGridAnimation();
 
+// Payment Modal Functionality
+const paymentModal = document.getElementById('paymentModal');
+const closeModalBtn = document.querySelector('.close-modal');
+const planOptions = document.querySelectorAll('.plan-option');
+const selectedPlanElement = document.getElementById('selectedPlan');
+const selectedPriceElement = document.getElementById('selectedPrice');
+const totalPriceElement = document.getElementById('totalPrice');
+const submitPaymentBtn = document.getElementById('submitPayment');
+
+// Open payment modal when clicking enroll buttons
+document.querySelectorAll('a[href="payment.html"], .pricing-card .cta-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        paymentModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Close modal
+closeModalBtn.addEventListener('click', () => {
+    paymentModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+// Close when clicking on backdrop
+paymentModal.addEventListener('click', (e) => {
+    if (e.target === paymentModal || e.target === document.querySelector('.payment-modal-backdrop')) {
+        paymentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Plan selection functionality
+planOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        const planName = option.dataset.plan;
+        const planPrice = option.dataset.price;
+        
+        // Update selected plan display
+        selectedPlanElement.textContent = planName.charAt(0).toUpperCase() + planName.slice(1);
+        selectedPriceElement.textContent = `₹${parseInt(planPrice).toLocaleString('en-IN')}/month`;
+        totalPriceElement.textContent = `₹${parseInt(planPrice).toLocaleString('en-IN')}`;
+        
+        // Update payment button
+        submitPaymentBtn.textContent = `Pay ₹${parseInt(planPrice).toLocaleString('en-IN')}`;
+    });
+});
+
+// Form validation and submission
+submitPaymentBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Basic validation
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const cvv = document.getElementById('cvv').value;
+    const cardName = document.getElementById('cardName').value;
+    
+    if (!cardNumber || !expiryDate || !cvv || !cardName) {
+        alert('Please fill in all payment details');
+        return;
+    }
+    
+    // Simple card number validation
+    if (cardNumber.replace(/\s/g, '').length !== 16 || isNaN(cardNumber.replace(/\s/g, ''))) {
+        alert('Please enter a valid 16-digit card number');
+        return;
+    }
+    
+    // Simple CVV validation
+    if (cvv.length !== 3 || isNaN(cvv)) {
+        alert('Please enter a valid 3-digit CVV');
+        return;
+    }
+    
+    // Process payment (in a real app, this would connect to a payment processor)
+    submitPaymentBtn.disabled = true;
+    submitPaymentBtn.textContent = 'Processing...';
+    
+    // Simulate payment processing
+    setTimeout(() => {
+        alert('Payment successful! Thank you for your enrollment.');
+        paymentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        submitPaymentBtn.disabled = false;
+        submitPaymentBtn.textContent = `Pay ₹${document.querySelector('.plan-option input[type="radio"]:checked').parentElement.dataset.price}`;
+    }, 2000);
+});
+
+// Format card number input
+document.getElementById('cardNumber').addEventListener('input', function(e) {
+    this.value = this.value.replace(/\D/g, '')
+                           .replace(/(\d{4})(?=\d)/g, '$1 ');
+});
+
+// Format expiry date input
+document.getElementById('expiryDate').addEventListener('input', function(e) {
+    this.value = this.value.replace(/\D/g, '')
+                           .replace(/(\d{2})(?=\d)/g, '$1/')
+                           .substring(0, 5);
+});
