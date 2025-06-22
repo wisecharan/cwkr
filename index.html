@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charwkr - Professional Design Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .pattern-bg {
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">charwkr</div>
+                <div class="logo">Cwkr.</div>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#courses">Courses</a></li>
@@ -24,8 +33,8 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="social-nav">
-                     <a href="https://www.linkedin.com/in/charwkr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                     <a href="https://www.instagram.com/charwkr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                     <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                     <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                      <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
                 </div>
                 <div class="mobile-menu">
@@ -39,25 +48,56 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Professional Design Education</h1>
-                <p class="subtitle">Industry-leading courses that transform creative potential into professional expertise</p>
-                <div class="cta-container">
-                    <a href="#pricing" class="cta-button primary">Enroll Now</a>
-                    <a href="#courses" class="cta-button secondary">Explore Courses</a>
+                <div class="hero-text">
+                    <div class="tagline">
+                        <span>Industry-recognized certification</span>
+                    </div>
+                    <h1>
+                        <span>Master Design with Industry Leaders</span><br>
+                    </h1>
+                    <p class="subtitle">Transform your creative skills into career success with our project-based learning approach and 1:1 mentorship</p>
+                    <div class="cta-container">
+                        <a href="#pricing" class="cta-button primary">
+                            <span>Enroll Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#courses" class="cta-button secondary">
+                            <span>Explore Courses</span>
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="trust-badges">
-                    <div class="badge-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>2,500+ Graduates</span>
+                <div class="hero-image">
+                  <div class="floating-elements">
+                    <!-- Floating info cards -->
+                    <div class="floating-card card-1">
+                      <i class="fas fa-medal"></i>
+                      <span>89% Career Impact</span>
                     </div>
-                    <div class="badge-item">
-                        <i class="fas fa-briefcase"></i>
-                        <span>89% Career Impact</span>
+                    <div class="floating-card card-2">
+                      <i class="fas fa-user-graduate"></i>
+                      <span>2,500+ Graduates</span>
                     </div>
-                    <div class="badge-item">
-                        <i class="fas fa-star"></i>
-                        <span>4.9/5 Rating</span>
+                    <div class="floating-card card-3">
+                      <i class="fas fa-clock"></i>
+                      <span>12 Week Programs</span>
                     </div>
+                    
+                    <!-- Geometric shapes -->
+                    <div class="floating-shape shape-circle"></div>
+                    <div class="floating-shape shape-triangle"></div>
+                    <div class="floating-shape shape-square"></div>
+                    <div class="floating-shape shape-hexagon"></div>
+                  </div>
+                </div>
+            </div>
+            <div class="trusted-by">
+                <p>Trusted by designers at</p>
+                <div class="company-logos">
+                    <img src="https://www.svgrepo.com/show/305909/coursera.svg" alt="Coursera">
+                    <img src="https://www.svgrepo.com/show/473499/adobe.svg" alt="Adobe">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS81e0whl2ivyJ0EfytR0lJuXGX3e2bfFg4A&s" alt="Youtube">
+                    <img src="https://www.svgrepo.com/show/473495/youtube.svg" alt="Youtube">
                 </div>
             </div>
         </div>
@@ -181,41 +221,54 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Career Transformations</h2>
-                <p class="section-subtitle">Where our graduates are now</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>The portfolio program gave me the confidence and materials to transition from marketing to product design. Tripled my salary in 18 months.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <h4>Sai Krishna</h4>
-                            <p>Senior Product Designer, TechCorp</p>
-                        </div>
+<!-- Testimonials Section -->
+<section class="section" id="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Career Transformations</h2>
+            <p class="section-subtitle">Where our graduates are now</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-content">
+                    <p>"The portfolio program gave me the confidence and materials to transition from marketing to product design. Tripled my salary in 18 months."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-color: #FFE8D6;"></div>
+                    <div class="author-info">
+                        <h4>Sai Krishna</h4>
+                        <p>Senior Product Designer, TechCorp</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>As a self-taught designer, Charwkr filled critical knowledge gaps. Landed my first agency role with a 40% pay increase after completing the brand systems course.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"></div>
-                        <div class="author-info">
-                            <h4>Jai Ram</h4>
-                            <p>Founder & Designer, PrintSmart</p>
-                        </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-content">
+                    <p>"As a self-taught designer, Charwkr filled critical knowledge gaps. Landed my first agency role with a 40% pay increase after completing the course."</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar" style="background-color: #E2F0CB;"></div>
+                    <div class="author-info">
+                        <h4>Jai Ram</h4>
+                        <p>Founder & Designer, PrintSmart</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- FAQ Section -->
     <section class="section" id="faq">
@@ -287,7 +340,7 @@
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>F/1 Ramgoapalpet<br>Secunderabad, 500003</span>
+                            <span>Hyderabad<br>Secunderabad, 500003</span>
                         </div>
                     </div>
                 </div>
@@ -325,25 +378,25 @@
                     <h3>charwkr</h3>
                     <p>Elevating design education through rigorous curriculum and industry-aligned instruction.</p>
                     <div class="social-links">
-                         <a href="https://www.linkedin.com/in/charwkr/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                         <a href="https://www.instagram.com/charb0i/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                         <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                         <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                          <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Programs</h4>
                     <ul>
-                        <li><a href="#">Core Curriculum</a></li>
-                        <li><a href="#">Advanced Tracks</a></li>
-                        <li><a href="#">Corporate Training</a></li>
+                        <li><a href="https://www.coursera.org/learn/fundamentals-of-graphic-design" target="_blank" >Core Curriculum</a></li>
+                        <li><a href="https://www.coursera.org/professional-certificates/adobe-graphic-designer" target="_blank" >Advanced Tracks</a></li>
+                        <li><a href="https://www.coursera.org/learn/design-fundamentals-ai" target="_blank" >Corporate Initiates</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Design Library</a></li>
-                        <li><a href="#">Career Portal</a></li>
-                        <li><a href="#">Alumni Network</a></li>
+                        <li><a href="https://www.youtube.com/user/charlimarieTV" target="_blank" >Design Tutorials</a></li>
+                        <li><a href="https://www.playbook.com" target="_blank" >Carrer Devlopment</a></li>
+                        <li><a href="https://designerup.co/?ref=designresourc.es" target="_blank">Alumni Network</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -356,7 +409,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Charwkr. All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> Char Workroom . All rights reserved.</p>
                 <div class="legal-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>

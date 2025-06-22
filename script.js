@@ -169,3 +169,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('scroll', checkScroll);
 
+// Create grid animation
+function createGridAnimation() {
+  const grid = document.createElement('div');
+  grid.className = 'grid-animation';
+  
+  // Create horizontal lines
+  for (let i = 0; i < 20; i++) {
+    const line = document.createElement('div');
+    line.className = 'grid-line horizontal';
+    line.style.top = `${i * 10}%`;
+    line.style.animationDelay = `${i * 0.5}s`;
+    grid.appendChild(line);
+  }
+  
+  // Create vertical lines
+  for (let i = 0; i < 20; i++) {
+    const line = document.createElement('div');
+    line.className = 'grid-line vertical';
+    line.style.left = `${i * 5}%`;
+    line.style.animationDelay = `${i * 0.3}s`;
+    grid.appendChild(line);
+  }
+  
+  document.querySelector('.hero').prepend(grid);
+}
+
+createGridAnimation();
+
