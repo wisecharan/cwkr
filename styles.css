@@ -180,20 +180,16 @@ nav {
     color: var(--black);
     font-weight: 500;
     font-size: 0.9rem;
-    transition: var(--transition);
-    position: relative;
     padding: 5px 0;
 }
 
 .nav-links a::after {
     content: '';
-    position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
     height: 1px;
     background-color: var(--black);
-    transition: var(--transition);
 }
 
 .nav-links a:hover::after,
@@ -1232,4 +1228,198 @@ footer {
   0% { opacity: 0.15; }
   50% { opacity: 0.25; }
   100% { opacity: 0.15; }
+}
+
+/* Payment Modal Styles */
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.payment-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.payment-card {
+    position: relative;
+    background-color: var(--white);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--medium-gray);
+    transition: var(--transition);
+}
+
+.close-modal:hover {
+    color: var(--black);
+}
+
+.payment-card h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.plan-selection h3,
+.payment-form h3 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+.plan-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.plan-option {
+    position: relative;
+}
+
+.plan-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.plan-option label {
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plan-option input[type="radio"]:checked + label {
+    border-color: var(--black);
+    background-color: rgba(17, 17, 17, 0.03);
+}
+
+.plan-name {
+    font-weight: 600;
+}
+
+.plan-price {
+    font-weight: 700;
+    color: var(--black);
+}
+
+.payment-summary {
+    background-color: var(--light-gray);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-item.total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+}
+
+.payment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.payment-form input:focus {
+    border-color: var(--black);
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+#submitPayment {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .payment-card {
+        width: 95%;
+        padding: 30px 20px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
 }
