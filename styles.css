@@ -1227,13 +1227,9 @@ footer {
   100% { opacity: 0.15; }
 }
 
-<<<<<<< HEAD
-/* Payment Modal Styles */
-=======
 /* ==================== */
 /* PAYMENT MODAL UPGRADE */
 /* ==================== */
->>>>>>> 62ab86f (Update styles and scripts)
 .payment-modal {
     position: fixed;
     top: 0;
@@ -1244,8 +1240,6 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-<<<<<<< HEAD
-=======
     padding: 20px;
     animation: fadeIn 0.3s ease-out;
 }
@@ -1253,7 +1247,6 @@ footer {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-modal-backdrop {
@@ -1262,42 +1255,15 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-=======
     background: linear-gradient(135deg, 
                 rgba(0,0,0,0.7) 0%, 
                 rgba(0,0,0,0.85) 100%);
     backdrop-filter: blur(8px);
->>>>>>> 62ab86f (Update styles and scripts)
     z-index: 1;
 }
 
 .payment-card {
     position: relative;
-<<<<<<< HEAD
-    background-color: var(--white);
-    width: 90%;
-    max-width: 600px;
-    border-radius: 12px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    max-height: 90vh;
-    overflow-y: auto;
-    animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-=======
     width: 100%;
     max-width: 520px;
     border-radius: 20px;
@@ -1321,38 +1287,11 @@ footer {
     to { 
         transform: translateY(0) scale(1);
         opacity: 1; 
->>>>>>> 62ab86f (Update styles and scripts)
     }
 }
 
 .close-modal {
     position: absolute;
-<<<<<<< HEAD
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--medium-gray);
-    transition: var(--transition);
-}
-
-.close-modal:hover {
-    color: var(--black);
-}
-
-.payment-card h2 {
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.plan-selection h3,
-.payment-form h3 {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: var(--black);
-=======
     top: 24px;
     right: 24px;
     width: 40px;
@@ -1404,19 +1343,13 @@ footer {
     color: var(--black);
     font-weight: 600;
     letter-spacing: 0.5px;
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-options {
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    gap: 10px;
-    margin-bottom: 30px;
-=======
     gap: 12px;
     margin-bottom: 32px;
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-option {
@@ -1429,22 +1362,6 @@ footer {
 }
 
 .plan-option label {
-<<<<<<< HEAD
-    display: block;
-    padding: 15px 20px;
-    border: 1px solid var(--light-gray);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.plan-option input[type="radio"]:checked + label {
-    border-color: var(--black);
-    background-color: rgba(17, 17, 17, 0.03);
-=======
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1466,29 +1383,16 @@ footer {
 
 .plan-option input[type="radio"]:focus + label {
     box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-name {
     font-weight: 600;
-<<<<<<< HEAD
-=======
     color: var(--black);
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-price {
     font-weight: 700;
     color: var(--black);
-<<<<<<< HEAD
-}
-
-.payment-summary {
-    background-color: var(--light-gray);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-=======
     letter-spacing: 0.5px;
 }
 
@@ -1499,26 +1403,11 @@ footer {
     padding: 24px;
     margin-bottom: 32px;
     border: 1px solid rgba(0,0,0,0.05);
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
-    margin-bottom: 10px;
-}
-
-.summary-item.total {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 700;
-}
-
-.payment-form .form-group {
-    margin-bottom: 20px;
-=======
     margin-bottom: 12px;
     font-size: 0.95rem;
 }
@@ -1535,35 +1424,18 @@ footer {
 /* Form Elements */
 .payment-form .form-group {
     margin-bottom: 24px;
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-form label {
     display: block;
     margin-bottom: 8px;
-<<<<<<< HEAD
-    font-size: 0.9rem;
-    color: var(--dark-gray);
-=======
     font-size: 0.85rem;
     color: var(--dark-gray);
     font-weight: 500;
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-form input {
     width: 100%;
-<<<<<<< HEAD
-    padding: 12px 15px;
-    border: 1px solid var(--light-gray);
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.payment-form input:focus {
-    border-color: var(--black);
-=======
     padding: 14px 16px;
     border-radius: 10px;
     font-size: 0.95rem;
@@ -1575,38 +1447,18 @@ footer {
 .payment-form input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
->>>>>>> 62ab86f (Update styles and scripts)
     outline: none;
 }
 
 .form-row {
     display: flex;
-<<<<<<< HEAD
-    gap: 20px;
-=======
     gap: 16px;
->>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .form-row .form-group {
     flex: 1;
 }
 
-<<<<<<< HEAD
-#submitPayment {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .payment-card {
-        width: 95%;
-        padding: 30px 20px;
-=======
 /* Submit Button */
 #submitPayment {
     width: 100%;
@@ -1643,16 +1495,12 @@ footer {
     .payment-card {
         padding: 32px 24px;
         border-radius: 16px;
->>>>>>> 62ab86f (Update styles and scripts)
     }
     
     .form-row {
         flex-direction: column;
         gap: 0;
     }
-<<<<<<< HEAD
-}
-=======
     
     .payment-card h2 {
         font-size: 1.5rem;
@@ -2069,4 +1917,3 @@ footer {
         font-weight: 600;
     }
 }
->>>>>>> 62ab86f (Update styles and scripts)

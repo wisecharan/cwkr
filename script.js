@@ -185,11 +185,7 @@ createGridAnimation();
 
 // Payment Modal Functionality
 const paymentModal = document.getElementById('paymentModal');
-<<<<<<< HEAD
-const closeModalBtn = document.querySelector('.close-modal');
-=======
 const paymentCloseModalBtns = paymentModal.querySelectorAll('.close-modal');
->>>>>>> 62ab86f (Update styles and scripts)
 const planOptions = document.querySelectorAll('.plan-option');
 const selectedPlanElement = document.getElementById('selectedPlan');
 const selectedPriceElement = document.getElementById('selectedPrice');
@@ -197,20 +193,6 @@ const totalPriceElement = document.getElementById('totalPrice');
 const submitPaymentBtn = document.getElementById('submitPayment');
 
 // Open payment modal when clicking enroll buttons
-<<<<<<< HEAD
-document.querySelectorAll('a[href="payment.html"], .pricing-card .cta-button').forEach(button => {
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        paymentModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    });
-});
-
-// Close modal
-closeModalBtn.addEventListener('click', () => {
-    paymentModal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-=======
 document.querySelectorAll('.payment-button').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -227,7 +209,6 @@ paymentCloseModalBtns.forEach(btn => {
         paymentModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     });
->>>>>>> 62ab86f (Update styles and scripts)
 });
 
 // Close when clicking on backdrop
@@ -307,8 +288,6 @@ document.getElementById('expiryDate').addEventListener('input', function(e) {
                            .replace(/(\d{2})(?=\d)/g, '$1/')
                            .substring(0, 5);
 });
-<<<<<<< HEAD
-=======
 
 // Registration Modal Functionality
 const registrationModal = document.getElementById('registrationModal');
@@ -511,4 +490,3 @@ function updateSummary() {
     summaryPlan.textContent = selectedBilling;
     summaryTotal.textContent = selectedPrice;
 }
->>>>>>> 62ab86f (Update styles and scripts)
