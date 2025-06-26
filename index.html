@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charwkr - Professional Design Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -15,7 +14,6 @@
             background-size: 20px 20px;
         }
     </style>
-</head>
 </head>
 <body>
     <!-- Header -->
@@ -33,9 +31,9 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="social-nav">
-                     <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                     <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                     <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+                    <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
                 </div>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
@@ -68,27 +66,24 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                  <div class="floating-elements">
-                    <!-- Floating info cards -->
-                    <div class="floating-card card-1">
-                      <i class="fas fa-medal"></i>
-                      <span>89% Career Impact</span>
+                    <div class="floating-elements">
+                        <div class="floating-card card-1">
+                            <i class="fas fa-medal"></i>
+                            <span>89% Career Impact</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>2,500+ Graduates</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="fas fa-clock"></i>
+                            <span>12 Week Programs</span>
+                        </div>
+                        <div class="floating-shape shape-circle"></div>
+                        <div class="floating-shape shape-triangle"></div>
+                        <div class="floating-shape shape-square"></div>
+                        <div class="floating-shape shape-hexagon"></div>
                     </div>
-                    <div class="floating-card card-2">
-                      <i class="fas fa-user-graduate"></i>
-                      <span>2,500+ Graduates</span>
-                    </div>
-                    <div class="floating-card card-3">
-                      <i class="fas fa-clock"></i>
-                      <span>12 Week Programs</span>
-                    </div>
-                    
-                    <!-- Geometric shapes -->
-                    <div class="floating-shape shape-circle"></div>
-                    <div class="floating-shape shape-triangle"></div>
-                    <div class="floating-shape shape-square"></div>
-                    <div class="floating-shape shape-hexagon"></div>
-                  </div>
                 </div>
             </div>
             <div class="trusted-by">
@@ -102,7 +97,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Courses Section -->
     <section class="section" id="courses">
         <div class="container">
@@ -119,6 +114,7 @@
                         <span><i class="far fa-clock"></i> 80 Hours</span>
                         <span><i class="fas fa-layer-group"></i> Beginner</span>
                     </div>
+                    <button class="register-course cta-button secondary" data-course="Fundamentals Mastery">Register Course</button>
                 </div>
                 <div class="course-card">
                     <div class="course-icon"><i class="fas fa-pen-fancy"></i></div>
@@ -128,6 +124,7 @@
                         <span><i class="far fa-clock"></i> 120 Hours</span>
                         <span><i class="fas fa-layer-group"></i> Intermediate</span>
                     </div>
+                    <button class="register-course cta-button secondary" data-course="Adobe Creative Suite">Register Course</button>
                 </div>
                 <div class="course-card">
                     <div class="course-icon"><i class="fas fa-atom"></i></div>
@@ -137,10 +134,36 @@
                         <span><i class="far fa-clock"></i> 100 Hours</span>
                         <span><i class="fas fa-layer-group"></i> Advanced</span>
                     </div>
+                    <button class="register-course cta-button secondary" data-course="Brand Systems">Register Course</button>
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Registration Modal -->
+    <div class="registration-modal" id="registrationModal">
+        <div class="registration-modal-backdrop"></div>
+        <div class="registration-card">
+            <button class="close-modal">&times;</button>
+            <h2>Register for <span id="courseTitle"></span></h2>
+            <form id="registrationForm" action="https://formspree.io/f/movwpnqz" method="POST">
+                <input type="hidden" name="course" id="selectedCourse">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="_replyto" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Any specific learning goals?"></textarea>
+                </div>
+                <button type="submit" class="cta-button primary">Submit Registration</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Recommended Section -->
     <section class="section" id="recommended">
@@ -176,6 +199,101 @@
         </div>
     </section>
 
+    <!-- Enrollment Flow Modal -->
+    <div class="enrollment-modal" id="enrollmentModal">
+        <div class="enrollment-modal-backdrop"></div>
+        <div class="enrollment-card">
+            <button class="close-modal">&times;</button>
+            <div class="enrollment-step active" data-step="1">
+                <h2>Select Your Course</h2>
+                <p class="step-subtitle">Choose the program that matches your goals</p>
+                <div class="course-options">
+                    <div class="course-option" data-course="fundamentals">
+                        <input type="radio" name="course" id="course-fundamentals" checked>
+                        <label for="course-fundamentals">
+                            <span class="course-name">Fundamentals Mastery</span>
+                            <span class="course-duration">12 weeks</span>
+                            <span class="course-level">Beginner</span>
+                        </label>
+                    </div>
+                    <div class="course-option" data-course="adobe">
+                        <input type="radio" name="course" id="course-adobe">
+                        <label for="course-adobe">
+                            <span class="course-name">Adobe Creative Suite</span>
+                            <span class="course-duration">16 weeks</span>
+                            <span class="course-level">Intermediate</span>
+                        </label>
+                    </div>
+                    <div class="course-option" data-course="brand">
+                        <input type="radio" name="course" id="course-brand">
+                        <label for="course-brand">
+                            <span class="course-name">Brand Systems</span>
+                            <span class="course-duration">14 weeks</span>
+                            <span class="course-level">Advanced</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="cta-button primary next-step">Continue</button>
+            </div>
+            <div class="enrollment-step" data-step="2">
+                <h2>Billing Preferences</h2>
+                <p class="step-subtitle">Select your preferred payment plan</p>
+                <div class="billing-options">
+                    <div class="billing-option" data-plan="monthly">
+                        <input type="radio" name="billing" id="billing-monthly" checked>
+                        <label for="billing-monthly">
+                            <span class="plan-name">Monthly</span>
+                            <span class="plan-price">₹1,999/month</span>
+                            <span class="plan-desc">Pay as you go with monthly installments</span>
+                        </label>
+                    </div>
+                    <div class="billing-option" data-plan="quarterly">
+                        <input type="radio" name="billing" id="billing-quarterly">
+                        <label for="billing-quarterly">
+                            <span class="plan-name">Quarterly</span>
+                            <span class="plan-price">₹1,799/month</span>
+                            <span class="plan-desc">Save 10% with quarterly payments</span>
+                        </label>
+                    </div>
+                    <div class="billing-option" data-plan="annual">
+                        <input type="radio" name="billing" id="billing-annual">
+                        <label for="billing-annual">
+                            <span class="plan-name">Annual</span>
+                            <span class="plan-price">₹1,499/month</span>
+                            <span class="plan-desc">Save 25% with annual commitment</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="cta-button secondary prev-step">Back</button>
+                    <button class="cta-button primary next-step">Continue</button>
+                </div>
+            </div>
+            <div class="enrollment-step" data-step="3">
+                <h2>Review Your Enrollment</h2>
+                <p class="step-subtitle">Confirm your selections before proceeding</p>
+                <div class="enrollment-summary">
+                    <div class="summary-item">
+                        <span>Selected Course</span>
+                        <span id="summary-course">Fundamentals Mastery</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Billing Plan</span>
+                        <span id="summary-plan">Monthly</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Commitment</span>
+                        <span id="summary-total">₹1,999/month</span>
+                    </div>
+                </div>
+                <div class="step-actions">
+                    <button class="cta-button secondary prev-step">Back</button>
+                    <button class="cta-button primary proceed-payment">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Pricing Section -->
     <section class="section" id="pricing">
         <div class="container">
@@ -192,7 +310,7 @@
                         <li><i class="fas fa-check"></i> Community Access</li>
                         <li><i class="fas fa-check"></i> Basic Support</li>
                     </ul>
-                    <a href="#" class="cta-button secondary">Start Learning</a>
+                    <a href="#courses" class="cta-button secondary">Start Learning</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="featured-badge">Recommended</div>
@@ -204,7 +322,11 @@
                         <li><i class="fas fa-check"></i> Certification</li>
                         <li><i class="fas fa-check"></i> Portfolio Review</li>
                     </ul>
+<<<<<<< HEAD
                     <a href="payment.html" class="cta-button primary">Enroll Now</a>
+=======
+                    <a href="payment.html" class="cta-button primary payment-button">Enroll Now</a>
+>>>>>>> 62ab86f (Update styles and scripts)
                 </div>
                 <div class="pricing-card">
                     <h3>Enterprise</h3>
@@ -215,13 +337,14 @@
                         <li><i class="fas fa-check"></i> Premium Certification</li>
                         <li><i class="fas fa-check"></i> Job Placement Support</li>
                     </ul>
-                    <a href="#" class="cta-button secondary">Contact Sales</a>
+                    <a href="#contact" class="cta-button secondary">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Payment Modal -->
+<<<<<<< HEAD
 <div class="payment-modal" id="paymentModal">
     <div class="payment-modal-backdrop"></div>
     <div class="payment-card">
@@ -315,40 +438,100 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
+=======
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-modal-backdrop"></div>
+        <div class="payment-card">
+            <button class="close-modal">&times;</button>
+            <h2>Complete Your Payment</h2>
+            <div class="payment-summary">
+                <div class="summary-item">
+                    <span>Selected Plan</span>
+                    <span id="selectedPlan">Professional</span>
+>>>>>>> 62ab86f (Update styles and scripts)
                 </div>
-                <div class="testimonial-content">
-                    <p>"The portfolio program gave me the confidence and materials to transition from marketing to product design. Tripled my salary in 18 months."</p>
+                <div class="summary-item">
+                    <span>Billing Cycle</span>
+                    <span id="selectedBilling">Monthly</span>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-color: #FFE8D6;"></div>
-                    <div class="author-info">
-                        <h4>Sai Krishna</h4>
-                        <p>Senior Product Designer, TechCorp</p>
-                    </div>
+                <div class="summary-item total">
+                    <span>Total Due</span>
+                    <span id="totalPrice">₹3,999</span>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-rating">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+            <div class="payment-form">
+                <h3>Payment Information</h3>
+                <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <input type="text" id="cardNumber">
                 </div>
-                <div class="testimonial-content">
-                    <p>"As a self-taught designer, Charwkr filled critical knowledge gaps. Landed my first agency role with a 40% pay increase after completing the course."</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date</label>
+                        <input type="text" id="expiryDate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" placeholder="***" required>
+                    </div>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-color: #E2F0CB;"></div>
-                    <div class="author-info">
-                        <h4>Jai Ram</h4>
-                        <p>Founder & Designer, PrintSmart</p>
+                <div class="form-group">
+                    <label for="cardName">Name on Card</label>
+                    <input type="text" id="cardName">
+                </div>
+                <button class="cta-button primary" id="submitPayment">Complete Payment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Career Transformations</h2>
+                <p class="section-subtitle">Where our graduates are now</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The portfolio program gave me the confidence and materials to transition from marketing to product design. Tripled my salary in 18 months."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-color: #FFE8D6;"></div>
+                        <div class="author-info">
+                            <h4>Sai Krishna</h4>
+                            <p>Senior Product Designer, TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"As a self-taught designer, Charwkr filled critical knowledge gaps. Landed my first agency role with a 40% pay increase after completing the course."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-color: #E2F0CB;"></div>
+                        <div class="author-info">
+                            <h4>Jai Ram</h4>
+                            <p>Founder & Designer, PrintSmart</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- FAQ Section -->
     <section class="section" id="faq">
@@ -425,26 +608,29 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                 <form id="contactForm" action="https://formspree.io/f/mdkgbjqk" method="POST">
-                  <div class="form-group">
-                   <input type="text" name="name" placeholder="Full Name" required>
-                </div>
-                <div class="form-group">
-                 <input type="email" name="_replyto" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                 <select name="program" required>
-                  <option value="" disabled selected>Program Interest</option>
-                   <option>Fundamentals Mastery</option>
-                    <option>Adobe Creative Suite</option>
-                     <option>Brand Systems</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                 <textarea name="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="cta-button primary">Request Consultation</button>
-                </form>
+                    <form id="contactForm" action="https://formspree.io/f/mdkgbjqk" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="_replyto" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="program" required>
+                                <option value="" disabled selected>What can we help you with?</option>
+                                <option value="career_advice">Career Advice</option>
+                                <option value="payment_questions">Payment Questions</option>
+                                <option value="course_recommendation">Course Recommendation</option>
+                                <option value="mentorship">Mentorship Program</option>
+                                <option value="enterprise">Enterprise Training</option>
+                                <option value="other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button primary">Request Consultation</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -458,24 +644,24 @@
                     <h3>charwkr</h3>
                     <p>Elevating design education through rigorous curriculum and industry-aligned instruction.</p>
                     <div class="social-links">
-                         <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                         <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                         <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.linkedin.com/in/wisecharan/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/ymchar/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.behance.net/charwkr" target="_blank" rel="noopener noreferrer"><i class="fab fa-behance"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Programs</h4>
                     <ul>
-                        <li><a href="https://www.coursera.org/learn/fundamentals-of-graphic-design" target="_blank" >Core Curriculum</a></li>
-                        <li><a href="https://www.coursera.org/professional-certificates/adobe-graphic-designer" target="_blank" >Advanced Tracks</a></li>
-                        <li><a href="https://www.coursera.org/learn/design-fundamentals-ai" target="_blank" >Corporate Initiates</a></li>
+                        <li><a href="https://www.coursera.org/learn/fundamentals-of-graphic-design" target="_blank">Core Curriculum</a></li>
+                        <li><a href="https://www.coursera.org/professional-certificates/adobe-graphic-designer" target="_blank">Advanced Tracks</a></li>
+                        <li><a href="https://www.coursera.org/learn/design-fundamentals-ai" target="_blank">Corporate Initiates</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://www.youtube.com/user/charlimarieTV" target="_blank" >Design Tutorials</a></li>
-                        <li><a href="https://www.playbook.com" target="_blank" >Carrer Devlopment</a></li>
+                        <li><a href="https://www.youtube.com/user/charlimarieTV" target="_blank">Design Tutorials</a></li>
+                        <li><a href="https://www.playbook.com" target="_blank">Carrer Development</a></li>
                         <li><a href="https://designerup.co/?ref=designresourc.es" target="_blank">Alumni Network</a></li>
                     </ul>
                 </div>

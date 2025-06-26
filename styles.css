@@ -537,15 +537,12 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
-.course-card {
-    background-color: var(--white);
-    border-radius: 8px;
-    padding: 40px 30px;
-    transition: var(--transition);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+.course-card .register-course {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
 }
-
 .course-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
@@ -1230,7 +1227,13 @@ footer {
   100% { opacity: 0.15; }
 }
 
+<<<<<<< HEAD
 /* Payment Modal Styles */
+=======
+/* ==================== */
+/* PAYMENT MODAL UPGRADE */
+/* ==================== */
+>>>>>>> 62ab86f (Update styles and scripts)
 .payment-modal {
     position: fixed;
     top: 0;
@@ -1241,6 +1244,16 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 9999;
+<<<<<<< HEAD
+=======
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-modal-backdrop {
@@ -1249,13 +1262,21 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
+<<<<<<< HEAD
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
+=======
+    background: linear-gradient(135deg, 
+                rgba(0,0,0,0.7) 0%, 
+                rgba(0,0,0,0.85) 100%);
+    backdrop-filter: blur(8px);
+>>>>>>> 62ab86f (Update styles and scripts)
     z-index: 1;
 }
 
 .payment-card {
     position: relative;
+<<<<<<< HEAD
     background-color: var(--white);
     width: 90%;
     max-width: 600px;
@@ -1276,11 +1297,37 @@ footer {
     to {
         transform: translateY(0);
         opacity: 1;
+=======
+    width: 100%;
+    max-width: 520px;
+    border-radius: 20px;
+    padding: 48px;
+    z-index: 2;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: var(--white);
+    box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px) scale(0.98);
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0) scale(1);
+        opacity: 1; 
+>>>>>>> 62ab86f (Update styles and scripts)
     }
 }
 
 .close-modal {
     position: absolute;
+<<<<<<< HEAD
     top: 20px;
     right: 20px;
     background: none;
@@ -1305,13 +1352,71 @@ footer {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: var(--black);
+=======
+    top: 24px;
+    right: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.05);
+    border-radius: 50%;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(0,0,0,0.1);
+    color: var(--black);
+    transform: rotate(90deg);
+}
+
+/* Header Styling */
+.payment-card h2 {
+    margin-bottom: 32px;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--black);
+    position: relative;
+}
+
+.payment-card h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary) 0%, #999 100%);
+    margin: 16px auto 0;
+    border-radius: 3px;
+}
+
+/* Plan Selection */
+.plan-selection h3,
+.payment-form h3 {
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    color: var(--black);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-options {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     gap: 10px;
     margin-bottom: 30px;
+=======
+    gap: 12px;
+    margin-bottom: 32px;
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-option {
@@ -1324,6 +1429,7 @@ footer {
 }
 
 .plan-option label {
+<<<<<<< HEAD
     display: block;
     padding: 15px 20px;
     border: 1px solid var(--light-gray);
@@ -1338,15 +1444,43 @@ footer {
 .plan-option input[type="radio"]:checked + label {
     border-color: var(--black);
     background-color: rgba(17, 17, 17, 0.03);
+=======
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(250,250,250,0.6);
+    backdrop-filter: blur(4px);
+}
+
+.plan-option input[type="radio"]:checked + label {
+    border-color: var(--primary);
+    background: rgba(17,17,17,0.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.plan-option input[type="radio"]:focus + label {
+    box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-name {
     font-weight: 600;
+<<<<<<< HEAD
+=======
+    color: var(--black);
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .plan-price {
     font-weight: 700;
     color: var(--black);
+<<<<<<< HEAD
 }
 
 .payment-summary {
@@ -1354,11 +1488,24 @@ footer {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
+=======
+    letter-spacing: 0.5px;
+}
+
+/* Payment Summary */
+.payment-summary {
+    background: rgba(245,245,245,0.5);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(0,0,0,0.05);
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .summary-item {
     display: flex;
     justify-content: space-between;
+<<<<<<< HEAD
     margin-bottom: 10px;
 }
 
@@ -1371,17 +1518,42 @@ footer {
 
 .payment-form .form-group {
     margin-bottom: 20px;
+=======
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.summary-item.total {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--black);
+}
+
+/* Form Elements */
+.payment-form .form-group {
+    margin-bottom: 24px;
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-form label {
     display: block;
     margin-bottom: 8px;
+<<<<<<< HEAD
     font-size: 0.9rem;
     color: var(--dark-gray);
+=======
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .payment-form input {
     width: 100%;
+<<<<<<< HEAD
     padding: 12px 15px;
     border: 1px solid var(--light-gray);
     border-radius: 6px;
@@ -1391,18 +1563,36 @@ footer {
 
 .payment-form input:focus {
     border-color: var(--black);
+=======
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.8);
+}
+
+.payment-form input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
+>>>>>>> 62ab86f (Update styles and scripts)
     outline: none;
 }
 
 .form-row {
     display: flex;
+<<<<<<< HEAD
     gap: 20px;
+=======
+    gap: 16px;
+>>>>>>> 62ab86f (Update styles and scripts)
 }
 
 .form-row .form-group {
     flex: 1;
 }
 
+<<<<<<< HEAD
 #submitPayment {
     width: 100%;
     padding: 15px;
@@ -1416,10 +1606,467 @@ footer {
     .payment-card {
         width: 95%;
         padding: 30px 20px;
+=======
+/* Submit Button */
+#submitPayment {
+    width: 100%;
+    padding: 16px;
+    margin-top: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--black) 0%, #333 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center; /* Add this line to center the text */
+    display: flex; /* Add these lines to properly center */
+    justify-content: center; /* the content including the icon */
+    align-items: center;
+}
+
+#submitPayment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+#submitPayment:active {
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .payment-card {
+        padding: 32px 24px;
+        border-radius: 16px;
+>>>>>>> 62ab86f (Update styles and scripts)
     }
     
     .form-row {
         flex-direction: column;
         gap: 0;
     }
+<<<<<<< HEAD
 }
+=======
+    
+    .payment-card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Micro-interaction Enhancements */
+.plan-option label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(135deg, 
+              rgba(255,255,255,0) 0%,
+              rgba(255,255,255,0.3) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plan-option input[type="radio"]:checked + label::before {
+    opacity: 1;
+}
+
+/* Registration Modal - Reuses payment modal styles */
+.registration-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.registration-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.registration-card {
+    position: relative;
+    background-color: var(--white);
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease-out;
+}
+.registration-card h2 {
+    margin-bottom: 20px;
+    padding-bottom: 20px; 
+    border-bottom: 1px solid var(--light-gray);
+}
+/* Mobile view adjustments for payment card */
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 30px 20px;
+        width: 95%;
+        max-width: 100%;
+    }
+    
+    .registration-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+    }
+    
+    .registration-card .cta-button {
+        padding: 12px;
+    }
+}
+/* Enrollment Flow */
+.enrollment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.enrollment-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+                rgba(0,0,0,0.7) 0%, 
+                rgba(0,0,0,0.85) 100%);
+    backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+.enrollment-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 20px;
+    padding: 40px;
+    z-index: 2;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--white);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enrollment-step {
+    display: none;
+}
+
+.enrollment-step.active {
+    display: block;
+}
+
+.step-subtitle {
+    color: var(--medium-gray);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.course-options,
+.billing-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.course-option,
+.billing-option {
+    position: relative;
+}
+
+.course-option input[type="radio"],
+.billing-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.course-option label,
+.billing-option label {
+    display: block;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: rgba(250,250,250,0.6);
+}
+
+.course-option input[type="radio"]:checked + label,
+.billing-option input[type="radio"]:checked + label {
+    border-color: var(--primary);
+    background: rgba(17,17,17,0.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.course-name,
+.plan-name {
+    display: block;
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 5px;
+}
+
+.course-duration,
+.course-level,
+.plan-price,
+.plan-desc {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.course-duration,
+.course-level {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.plan-price {
+    font-weight: 700;
+    color: var(--black);
+    margin: 5px 0;
+}
+
+.step-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.step-actions .cta-button {
+    flex: 1;
+    text-align: center;
+}
+
+.enrollment-summary {
+    background: rgba(245,245,245,0.5);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.summary-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.summary-item span:first-child {
+    color: var(--medium-gray);
+}
+
+.summary-item span:last-child {
+    font-weight: 600;
+    color: var(--black);
+}
+
+@media (max-width: 768px) {
+    .enrollment-card {
+        padding: 30px 20px;
+    }
+    
+    .course-option label,
+    .billing-option label {
+        padding: 15px;
+    }
+}
+
+.enrollment-modal {
+    z-index: 10000;
+}
+
+.registration-modal {
+    z-index: 9999;
+}
+
+.payment-modal {
+    z-index: 9998;
+}
+
+@media (max-width: 768px) {
+    .payment-card {
+        padding: 32px 24px;
+        border-radius: 16px;
+        max-height: 85vh; /* Reduced from 90vh to prevent overlap */
+    }
+    
+    .close-modal {
+        top: 12px; /* Reduced from 24px */
+        right: 12px; /* Reduced from 24px */
+        width: 36px; /* Reduced from 40px */
+        height: 36px; /* Reduced from 40px */
+        font-size: 1.1rem; /* Reduced from 1.25rem */
+    }
+    
+    .payment-card h2 {
+        padding-top: 20px; /* Added to prevent text from being too close to close button */
+        margin-bottom: 24px; /* Reduced from 32px */
+        font-size: 1.5rem; /* Reduced from 1.75rem */
+    }
+    
+    #submitPayment {
+        margin-bottom: 20px; /* Added to prevent button from being too close to bottom */
+    }
+}
+
+@media (max-width: 768px) {
+    .enrollment-card h2 {
+        text-align: left;
+        padding-left: 0;
+        margin-left: 0;
+        font-size: 1.4rem;
+    }
+    
+    .step-subtitle {
+        text-align: left;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+    }
+    
+    /* Adjust button sizes for consistency */
+    .enrollment-card .cta-button {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+    }
+    
+    /* Make sure step actions buttons are equal width */
+    .step-actions .cta-button {
+        flex: 1;
+        min-width: 0; /* Allows buttons to shrink equally */
+    }
+    
+    /* Adjust the card padding for better mobile spacing */
+    .enrollment-card {
+        padding: 30px 20px;
+    }
+    
+    /* Ensure form elements have proper spacing */
+    .course-options, 
+    .billing-options {
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+    
+    /* Make radio option labels more compact */
+    .course-option label,
+    .billing-option label {
+        padding: 16px;
+    }
+    
+    /* Adjust summary section */
+    .enrollment-summary {
+        padding: 16px;
+    }
+    
+    .summary-item {
+        font-size: 0.9rem;
+    }
+}
+/* Add these styles to enhance the enrollment flow */
+.enrollment-step h2 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: var(--black);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.enrollment-step h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.step-subtitle {
+    color: var(--medium-gray);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Make the active step more prominent */
+.enrollment-step.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Button adjustments for mobile */
+@media (max-width: 768px) {
+    .step-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .step-actions .cta-button {
+        width: 100%;
+    }
+    
+    /* Make secondary button more distinct */
+    .step-actions .cta-button.secondary {
+        order: 1; /* Put back button below primary */
+    }
+    
+    .step-actions .cta-button.primary {
+        order: 2;
+    }
+    
+    /* Adjust the proceed payment button */
+    .proceed-payment {
+        font-weight: 600;
+    }
+}
+>>>>>>> 62ab86f (Update styles and scripts)

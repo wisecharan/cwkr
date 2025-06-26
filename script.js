@@ -62,20 +62,6 @@ if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
 }
 
-// Sticky header on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 20) {
-        header.style.padding = '10px 0';
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.backdropFilter = 'blur(5px)';
-    } else {
-        header.style.padding = '20px 0';
-        header.style.background = 'var(--white)';
-        header.style.backdropFilter = 'none';
-    }
-});
-
 // Highlight active section in navigation
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY + 100;
@@ -199,7 +185,11 @@ createGridAnimation();
 
 // Payment Modal Functionality
 const paymentModal = document.getElementById('paymentModal');
+<<<<<<< HEAD
 const closeModalBtn = document.querySelector('.close-modal');
+=======
+const paymentCloseModalBtns = paymentModal.querySelectorAll('.close-modal');
+>>>>>>> 62ab86f (Update styles and scripts)
 const planOptions = document.querySelectorAll('.plan-option');
 const selectedPlanElement = document.getElementById('selectedPlan');
 const selectedPriceElement = document.getElementById('selectedPrice');
@@ -207,6 +197,7 @@ const totalPriceElement = document.getElementById('totalPrice');
 const submitPaymentBtn = document.getElementById('submitPayment');
 
 // Open payment modal when clicking enroll buttons
+<<<<<<< HEAD
 document.querySelectorAll('a[href="payment.html"], .pricing-card .cta-button').forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
@@ -219,6 +210,24 @@ document.querySelectorAll('a[href="payment.html"], .pricing-card .cta-button').f
 closeModalBtn.addEventListener('click', () => {
     paymentModal.style.display = 'none';
     document.body.style.overflow = 'auto';
+=======
+document.querySelectorAll('.payment-button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        enrollmentModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Reset to first step
+        setActiveStep(1);
+    });
+});
+
+// Close payment modal
+paymentCloseModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        paymentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+>>>>>>> 62ab86f (Update styles and scripts)
 });
 
 // Close when clicking on backdrop
@@ -298,3 +307,208 @@ document.getElementById('expiryDate').addEventListener('input', function(e) {
                            .replace(/(\d{2})(?=\d)/g, '$1/')
                            .substring(0, 5);
 });
+<<<<<<< HEAD
+=======
+
+// Registration Modal Functionality
+const registrationModal = document.getElementById('registrationModal');
+const registrationCloseModalBtns = registrationModal.querySelectorAll('.close-modal');
+const registrationForm = document.getElementById('registrationForm');
+const courseTitleElement = document.getElementById('courseTitle');
+const selectedCourseElement = document.getElementById('selectedCourse');
+const registerButtons = document.querySelectorAll('.register-course');
+
+// Open registration modal when clicking register buttons
+registerButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        // Only proceed if this is a register button, not enroll button
+        if (!button.classList.contains('payment-button')) {
+            const courseName = button.dataset.course;
+            courseTitleElement.textContent = courseName;
+            selectedCourseElement.value = courseName;
+            registrationModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+}); 
+
+// Close registration modal
+registrationCloseModalBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        registrationModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Close when clicking on backdrop
+registrationModal.addEventListener('click', (e) => {
+    if (e.target === registrationModal || e.target === document.querySelector('.registration-modal-backdrop')) {
+        registrationModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Form submission handling
+if (registrationForm) {
+    const submitButton = registrationForm.querySelector('button[type="submit"]');
+    
+    registrationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Basic email validation
+        const email = registrationForm.querySelector('input[type="email"]').value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+        
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        const formData = new FormData(registrationForm);
+        try {
+            const response = await fetch(registrationForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Thank you for your registration! We will contact you soon.');
+                registrationForm.reset();
+                registrationModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            } else {
+                alert('There was an error submitting the form. Please try again.');
+            }
+        } catch (error) {
+            alert('Network error. Please check your connection and try again.');
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit Registration';
+        }
+    });
+}
+// Enrollment Flow Functionality
+const enrollmentModal = document.getElementById('enrollmentModal');
+const enrollmentCloseModalBtns = enrollmentModal.querySelectorAll('.close-modal');
+const enrollButtons = document.querySelectorAll('.payment-button');
+const enrollmentSteps = document.querySelectorAll('.enrollment-step');
+const nextStepButtons = document.querySelectorAll('.next-step');
+const prevStepButtons = document.querySelectorAll('.prev-step');
+const proceedPaymentButton = document.querySelector('.proceed-payment');
+const courseOptions = document.querySelectorAll('.course-option');
+const billingOptions = document.querySelectorAll('.billing-option');
+const summaryCourse = document.getElementById('summary-course');
+const summaryPlan = document.getElementById('summary-plan');
+const summaryTotal = document.getElementById('summary-total');
+
+// Open enrollment modal when clicking enroll buttons
+enrollButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        enrollmentModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        // Reset to first step
+        setActiveStep(1);
+    });
+});
+
+// Close enrollment modal
+enrollmentCloseModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        // Only close the enrollment modal, don't open registration
+        enrollmentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // Prevent event bubbling that might trigger other modals
+        e.stopPropagation();
+    });
+});
+
+// Close when clicking on backdrop
+enrollmentModal.addEventListener('click', (e) => {
+    if (e.target === enrollmentModal || e.target === document.querySelector('.enrollment-modal-backdrop')) {
+        enrollmentModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Navigation between steps
+nextStepButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const currentStep = document.querySelector('.enrollment-step.active');
+        const nextStep = parseInt(currentStep.dataset.step) + 1;
+        setActiveStep(nextStep);
+        
+        // Update summary if going to final step
+        if (nextStep === 3) {
+            updateSummary();
+        }
+    });
+});
+
+prevStepButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const currentStep = document.querySelector('.enrollment-step.active');
+        const prevStep = parseInt(currentStep.dataset.step) - 1;
+        setActiveStep(prevStep);
+    });
+});
+
+// Proceed to payment
+proceedPaymentButton.addEventListener('click', () => {
+    enrollmentModal.style.display = 'none';
+    paymentModal.style.display = 'flex';
+    
+    // Set the selected plan in payment modal based on enrollment selections
+    const selectedBilling = document.querySelector('.billing-option input[type="radio"]:checked').parentElement.dataset.plan;
+    let plan, price;
+    
+    switch(selectedBilling) {
+        case 'monthly':
+            plan = 'starter';
+            price = '1999';
+            break;
+        case 'quarterly':
+            plan = 'professional';
+            price = '3999';
+            break;
+        case 'annual':
+            plan = 'enterprise';
+            price = '5999';
+            break;
+    }
+    
+    // Update payment modal with selected plan
+    document.getElementById(`plan-${plan}`).checked = true;
+    selectedPlanElement.textContent = plan.charAt(0).toUpperCase() + plan.slice(1);
+    selectedPriceElement.textContent = `₹${parseInt(price).toLocaleString('en-IN')}/month`;
+    totalPriceElement.textContent = `₹${parseInt(price).toLocaleString('en-IN')}`;
+    submitPaymentBtn.textContent = `Pay ₹${parseInt(price).toLocaleString('en-IN')}`;
+});
+
+// Helper function to set active step
+function setActiveStep(stepNumber) {
+    enrollmentSteps.forEach(step => {
+        step.classList.remove('active');
+        if (parseInt(step.dataset.step) === stepNumber) {
+            step.classList.add('active');
+        }
+    });
+}
+
+// Update summary information
+function updateSummary() {
+    const selectedCourse = document.querySelector('.course-option input[type="radio"]:checked').parentElement.querySelector('.course-name').textContent;
+    const selectedBilling = document.querySelector('.billing-option input[type="radio"]:checked').parentElement.querySelector('.plan-name').textContent;
+    const selectedPrice = document.querySelector('.billing-option input[type="radio"]:checked').parentElement.querySelector('.plan-price').textContent;
+    
+    summaryCourse.textContent = selectedCourse;
+    summaryPlan.textContent = selectedBilling;
+    summaryTotal.textContent = selectedPrice;
+}
+>>>>>>> 62ab86f (Update styles and scripts)
