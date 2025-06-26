@@ -20,7 +20,7 @@
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Cwkr.</div>
+                <div class="logo">/cwkr.</div>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#courses">Courses</a></li>
@@ -140,30 +140,34 @@
         </div>
     </section>
     
-    <!-- Registration Modal -->
-    <div class="registration-modal" id="registrationModal">
-        <div class="registration-modal-backdrop"></div>
-        <div class="registration-card">
-            <button class="close-modal">&times;</button>
-            <h2>Register for <span id="courseTitle"></span></h2>
-            <form id="registrationForm" action="https://formspree.io/f/movwpnqz" method="POST">
-                <input type="hidden" name="course" id="selectedCourse">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="_replyto" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Phone Number">
-                </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Any specific learning goals?"></textarea>
-                </div>
-                <button type="submit" class="cta-button primary">Submit Registration</button>
-            </form>
-        </div>
+<!-- Registration Modal -->
+<div class="registration-modal" id="registrationModal">
+    <div class="registration-modal-backdrop"></div>
+    <div class="registration-card">
+        <button class="close-modal">&times;</button>
+        <h2>Confirm Enrollment</h2>
+        <p class="step-subtitle">Program: <span id="courseTitle"></span></p>
+        <form id="registrationForm" action="https://formspree.io/f/movwpnqz" method="POST">
+            <input type="hidden" name="course" id="selectedCourse">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Full Name*" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="_replyto" placeholder="Email Address*" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Tell us about your design experience (optional)"></textarea>
+            </div>
+            <button type="submit" class="cta-button primary">
+                <span>Submit Registration</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
     </div>
+</div>
 
     <!-- Recommended Section -->
     <section class="section" id="recommended">
@@ -270,7 +274,7 @@
                 </div>
             </div>
             <div class="enrollment-step" data-step="3">
-                <h2>Review Your Enrollment</h2>
+                <h2>Verify Bill</h2>
                 <p class="step-subtitle">Confirm your selections before proceeding</p>
                 <div class="enrollment-summary">
                     <div class="summary-item">
@@ -432,6 +436,16 @@
             </div>
         </div>
     </section>
+
+<!-- In the Testimonials Section, after the testimonials-grid -->
+<div class="video-container">
+    <h3 class="video-title">Success Stories</h3>
+    <div class="video-wrapper">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Dg0cJTr5RNg?si=eS9uUTOB3z8o7MN_" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</div>
 
     <!-- FAQ Section -->
     <section class="section" id="faq">

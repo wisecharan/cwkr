@@ -714,7 +714,6 @@ nav {
 .testimonial-card {
     background-color: var(--white);
     border-radius: 12px;
-    padding: 40px;
     border: 1px solid rgba(0, 0, 0, 0.05);
     transition: var(--transition);
     position: relative;
@@ -1590,8 +1589,30 @@ footer {
     }
     
     .registration-card .cta-button {
-        padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.registration-card .step-subtitle {
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+/* Keep mobile alignment as is */
+@media (max-width: 768px) {
+    .registration-card .step-subtitle {
+        text-align: left;
     }
+}
+
+/* Keep mobile alignment as is */
+@media (max-width: 768px) {
+    .registration-card .cta-button {
+        justify-content: center;
+    }
+}
 }
 /* Enrollment Flow */
 .enrollment-modal {
@@ -1916,4 +1937,275 @@ footer {
     .proceed-payment {
         font-weight: 600;
     }
+}
+/* Updated Registration Card Styles */
+.registration-card {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 40px;
+    z-index: 2;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: var(--white);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.registration-card h2 {
+    margin-bottom: 24px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--black);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.registration-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.registration-card .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.05);
+    border-radius: 50%;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--medium-gray);
+    transition: all 0.3s ease;
+}
+
+.registration-card .close-modal:hover {
+    background: rgba(0,0,0,0.1);
+    color: var(--black);
+    transform: rotate(90deg);
+}
+
+.registration-card .form-group {
+    margin-bottom: 20px;
+}
+
+.registration-card input,
+.registration-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.8);
+}
+
+.registration-card input:focus,
+.registration-card textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(17,17,17,0.1);
+    outline: none;
+}
+
+.registration-card textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.registration-card .cta-button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .registration-card {
+        padding: 30px 20px;
+        border-radius: 14px;
+    }
+    
+    .registration-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .registration-card input,
+    .registration-card textarea {
+        padding: 12px 14px;
+    }
+}
+@media (max-width: 768px) {
+    .close-modal {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+        z-index: 10;
+    }
+    
+    /* Ensure the modal content has enough padding to not overlap with close button */
+    .registration-card, .enrollment-card, .payment-card {
+        padding-top: 50px;
+    }
+}
+.step-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.step-actions .cta-button {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .step-actions {
+        flex-direction: column;
+    }
+    
+    .step-actions .cta-button {
+        width: 100%;
+    }
+}
+
+/* YouTube Video Styles */
+.video-container {
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-title {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--black);
+    position: relative;
+    display: inline-block;
+}
+
+.video-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: var(--light-gray);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .video-container {
+        margin-top: 40px;
+    }
+    
+    .video-title {
+        font-size: 1.3rem;
+    }
+}
+
+
+.grid-fade-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-fade-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.grid-line-fade {
+    position: absolute;
+    background-color: var(--black);
+    animation: fadeInGrid 2s ease-out forwards;
+}
+
+@keyframes fadeInGrid {
+    from { opacity: 0; }
+    to { opacity: 0.03; }
+}
+
+/* Horizontal lines */
+.grid-line-fade.horizontal {
+    width: 100%;
+    height: 1px;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+/* Vertical lines */
+.grid-line-fade.vertical {
+    width: 1px;
+    height: 100%;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+
+/* YouTube Video Mobile Optimization */
+@media (max-width: 768px) {
+  .video-container {
+    padding: 0 15px;
+    margin-top: 10px;
+  }
+  
+  .video-title {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .video-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* Remove extra padding/margin around iframe */
+  .video-wrapper iframe {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Make the video full width on mobile */
+  .video-wrapper {
+    width: 100%;
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+  }
 }

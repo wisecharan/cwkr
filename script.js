@@ -490,3 +490,25 @@ function updateSummary() {
     summaryPlan.textContent = selectedBilling;
     summaryTotal.textContent = selectedPrice;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const videoWrapper = document.querySelector('.video-wrapper');
+    
+    // Animate the video when it comes into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                videoWrapper.style.opacity = '1';
+                videoWrapper.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if (videoWrapper) {
+        videoWrapper.style.opacity = '0';
+        videoWrapper.style.transform = 'translateY(20px)';
+        videoWrapper.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(videoWrapper);
+    }
+});
+
