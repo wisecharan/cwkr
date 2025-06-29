@@ -512,3 +512,232 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Course Preview Tabs
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('[data-tab-content]');
+
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const targetTab = tab.dataset.tab;
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Show corresponding content
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.dataset.tabContent === targetTab) {
+                content.classList.add('active');
+            }
+        });
+    });
+});
+
+// Popup Card Functionality
+const popupCard = document.getElementById('popupCard');
+const closePopupBtn = popupCard.querySelector('.close-popup');
+const popupIcon = document.getElementById('popupIcon');
+const popupTitle = document.getElementById('popupTitle');
+const popupMessage = document.getElementById('popupMessage');
+const popupForm = document.getElementById('popupForm');
+
+function showPopup(title, message, icon, showForm = false) {
+    popupTitle.textContent = title;
+    popupMessage.textContent = message;
+    popupIcon.className = `fas ${icon}`;
+    popupForm.style.display = showForm ? 'block' : 'none';
+    popupCard.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+closePopupBtn.addEventListener('click', () => {
+    popupCard.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+popupCard.addEventListener('click', (e) => {
+    if (e.target === popupCard) {
+        popupCard.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Try Free Lesson button
+document.querySelectorAll('.try-free').forEach(button => {
+    button.addEventListener('click', function() {
+        const course = this.dataset.course;
+        showPopup(
+            `Free Lesson Access`,
+            `Enter your email to receive instant access to a free lesson from our ${course} course.`,
+            'fa-unlock',
+            true
+        );
+    });
+});
+
+// Download Syllabus button
+document.querySelectorAll('.download-sample').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default behavior
+        const course = this.dataset.course;
+        showPopup(
+            `Download Syllabus`,
+            `The syllabus for our ${course} course will be downloaded. Check your downloads folder.`,
+            'fa-file-pdf'
+        );
+        
+        // In a real implementation, trigger actual download here
+        setTimeout(() => {
+            // Simulate download
+            const link = document.createElement('a');
+            link.href = '#'; // Replace with actual PDF URL
+            link.download = `${course.toLowerCase().replace(/\s+/g, '-')}-syllabus.pdf`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }, 1500);
+    });
+});
+
+// Handle popup form submission
+popupForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('popupEmail').value;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    
+    // In a real implementation, send this to your backend
+    alert(`Thank you! Access to the free lesson has been sent to ${email}`);
+    popupCard.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    popupForm.reset();
+});
+// Faculty Modal Functionality
+const facultyModal = document.getElementById('facultyModal');
+const facultyButtons = document.querySelectorAll('.faculty-more');
+const closeFacultyModal = facultyModal.querySelector('.close-modal');
+
+// Faculty data (would normally come from API or backend)
+const facultyData = {
+    'sarah-johnson': {
+        name: 'Sarah Johnson',
+        title: 'Senior Brand Designer',
+        image: 'https://randomuser.me/api/portraits/women/44.jpg',
+        bio: 'With over 12 years of experience in brand design, Sarah has worked with Fortune 500 companies and startups alike. Former Creative Director at DesignStudio, she specializes in creating cohesive brand identities that stand the test of time. Sarah\'s work has been recognized by AIGA and featured in Communication Arts.',
+        social: [
+            {icon: 'fab fa-linkedin-in', url: '#'},
+            {icon: 'fab fa-behance', url: '#'},
+            {icon: 'fab fa-dribbble', url: '#'}
+        ],
+        courses: [
+            'Brand Systems Masterclass',
+            'Logo Design Fundamentals',
+            'Advanced Typography'
+        ]
+    },
+    'michael-chen': {
+        name: 'Michael Chen',
+        title: 'UX/UI Specialist',
+        image: 'https://randomuser.me/api/portraits/men/32.jpg',
+        bio: 'Michael is a product designer with a focus on user experience. As the lead designer at TechCorp, he has shipped products used by millions. His approach combines user research with elegant interfaces, resulting in products that are both beautiful and functional. Michael holds a Master\'s in Human-Computer Interaction from Stanford.',
+        social: [
+            {icon: 'fab fa-linkedin-in', url: '#'},
+            {icon: 'fab fa-behance', url: '#'},
+            {icon: 'fab fa-dribbble', url: '#'}
+        ],
+        courses: [
+            'UX Design Principles',
+            'Figma for Product Design',
+            'Mobile UI Patterns'
+        ]
+    },
+    'priya-patel': {
+        name: 'Priya Patel',
+        title: 'Adobe Creative Expert',
+        image: 'https://randomuser.me/api/portraits/women/68.jpg',
+        bio: 'Priya is an Adobe Certified Instructor with 8+ years of teaching experience. She specializes in making complex design software accessible to beginners while pushing advanced users to new heights. Her YouTube tutorials have been viewed over 5 million times, and she regularly conducts workshops at design conferences worldwide.',
+        social: [
+            {icon: 'fab fa-linkedin-in', url: '#'},
+            {icon: 'fab fa-behance', url: '#'},
+            {icon: 'fab fa-dribbble', url: '#'}
+        ],
+        courses: [
+            'Photoshop for Designers',
+            'Illustrator Essentials',
+            'Advanced InDesign'
+        ]
+    }
+};
+
+// Open faculty modal
+facultyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const facultyId = button.dataset.faculty;
+        const faculty = facultyData[facultyId];
+        
+        if (faculty) {
+            document.getElementById('modalFacultyName').textContent = faculty.name;
+            document.getElementById('modalFacultyTitle').textContent = faculty.title;
+            document.getElementById('modalFacultyImage').src = faculty.image;
+            document.getElementById('modalFacultyImage').alt = faculty.name;
+            document.getElementById('modalFacultyBio').textContent = faculty.bio;
+            
+            // Set social links
+            const socialContainer = document.getElementById('modalFacultySocial');
+            socialContainer.innerHTML = '';
+            faculty.social.forEach(social => {
+                const link = document.createElement('a');
+                link.href = social.url;
+                link.target = '_blank';
+                link.innerHTML = `<i class="${social.icon}"></i>`;
+                socialContainer.appendChild(link);
+            });
+            
+            // Set courses
+            const coursesContainer = document.getElementById('modalFacultyCourses');
+            coursesContainer.innerHTML = '';
+            faculty.courses.forEach(course => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fas fa-book"></i> ${course}`;
+                coursesContainer.appendChild(li);
+            });
+            
+            facultyModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    });
+});
+
+// Close faculty modal
+closeFacultyModal.addEventListener('click', () => {
+    facultyModal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+facultyModal.addEventListener('click', (e) => {
+    if (e.target === facultyModal || e.target === facultyModal.querySelector('.faculty-modal-backdrop')) {
+        facultyModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Add animation to faculty cards
+document.addEventListener('DOMContentLoaded', () => {
+    const facultyCards = document.querySelectorAll('.faculty-card');
+    facultyCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.transitionDelay = `${index * 0.1}s`;
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100);
+    });
+});

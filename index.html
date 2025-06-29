@@ -59,7 +59,7 @@
                             <span>Enroll Now</span>
                             <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="#courses" class="cta-button secondary">
+                        <a href="#course-preview" class="cta-button secondary">
                             <span>Explore Courses</span>
                             <i class="fas fa-play"></i>
                         </a>
@@ -98,6 +98,79 @@
         </div>
     </section>
     
+        <!-- Course Preview Section -->
+<section class="section" id="course-preview">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Explore Our Courses</h2>
+            <p class="section-subtitle">Get a preview of what you'll learn</p>
+        </div>
+        
+        <div class="course-preview-tabs">
+            <div class="tab active" data-tab="fundamentals">Fundamentals</div>
+            <div class="tab" data-tab="adobe">Adobe Suite</div>
+            <div class="tab" data-tab="brand">Brand Systems</div>
+        </div>
+        
+        <div class="preview-content active" data-tab-content="fundamentals">
+            <div class="preview-video">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9EPTM91TBDU?si=7w1YFo_g1ZQL_5G7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="preview-description">
+                <h3>Week 1: Design Principles</h3>
+                <p>In this introductory module, you'll learn the foundational principles of design including contrast, alignment, repetition, and proximity.</p>
+                <div class="preview-actions">
+                    <button class="cta-button primary try-free" data-course="fundamentals">
+                        Try Free Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-content" data-tab-content="adobe">
+            <div class="preview-video">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/IyR_uYsRdPs?si=s-b1CQ_sDtj_3XUQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="preview-description">
+                <h3>Week 1: Photoshop Basics</h3>
+                <p>Get started with Photoshop's interface, tools, and basic photo editing techniques that every designer should know.</p>
+                <div class="preview-actions">
+                    <button class="cta-button primary try-free" data-course="adobe">
+                        Try Free Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-content" data-tab-content="brand">
+            <div class="preview-video">
+                <div class="video-wrapper">
+                    <iframe width="914" height="514" src="https://www.youtube.com/embed/BqTZuj07q2k" title="Logo &amp; Branding Trends 2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="preview-description">
+                <h3>Week 1: Brand Identity</h3>
+                <p>Learn how to develop a cohesive brand identity system including logo, color palette, typography, and visual language.</p>
+                <div class="preview-actions">
+                    <button class="cta-button primary try-free" data-course="brand">
+                        Try Free Lesson
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
     <!-- Courses Section -->
     <section class="section" id="courses">
         <div class="container">
@@ -139,7 +212,7 @@
             </div>
         </div>
     </section>
-    
+
 <!-- Registration Modal -->
 <div class="registration-modal" id="registrationModal">
     <div class="registration-modal-backdrop"></div>
@@ -575,7 +648,7 @@
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="https://www.youtube.com/user/charlimarieTV" target="_blank">Design Tutorials</a></li>
-                        <li><a href="https://www.playbook.com" target="_blank">Carrer Development</a></li>
+                        <li><a href="https://www.playbook.com" target="_blank">Future Readiness</a></li>
                         <li><a href="https://designerup.co/?ref=designresourc.es" target="_blank">Alumni Network</a></li>
                     </ul>
                 </div>
@@ -588,7 +661,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Char Workroom . All rights reserved.</p>
+                <p>&copy; <span id="current-year"></span> /cwkr. All rights reserved.</p>
                 <div class="legal-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -596,6 +669,21 @@
             </div>
         </div>
     </footer>
+    <!-- Popup Card -->
+<div class="popup-card" id="popupCard">
+    <div class="popup-content">
+        <button class="close-popup">&times;</button>
+        <div class="popup-icon">
+            <i class="fas" id="popupIcon"></i>
+        </div>
+        <h3 id="popupTitle">Popup Title</h3>
+        <p id="popupMessage">Popup message content goes here.</p>
+        <form class="popup-form" id="popupForm" style="display: none;">
+            <input type="email" id="popupEmail" placeholder="Enter your email" required>
+            <button type="submit" class="cta-button primary">Submit</button>
+        </form>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
